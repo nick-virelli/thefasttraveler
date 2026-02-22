@@ -1,32 +1,32 @@
 # Travel blog
 
-A minimal travel blog with an interactive map (continent → region → city) and an **Add post** form at `/add-post` so new posts can be added without editing code.
+A minimal travel blog with a real interactive map (Leaflet + OpenStreetMap). Click a continent to zoom in, then click a city marker to read the post below. Add post is available at a **hidden URL** (not linked from the site) for editors.
 
 ## Run locally
 
-**Option 1 (no install):** Double-click **index.html** to open it in your browser. The map and add-post form work without a server.
+**Option 1 (no install):** Double-click **index.html** to open it in your browser. The map works without a server (add-post form needs the deployed site to save).
 
-**Option 2 (with Node.js):** From this folder, run `npx serve .` then open the URL shown (e.g. http://localhost:3000).
+**Option 2 (with Node.js):** Run `npx serve .` then open the URL shown (e.g. http://localhost:3000).
 
 ## Deploy on Netlify
 
 1. Push this project to a GitHub repo.
 2. In [Netlify](https://app.netlify.com), add a new site and connect that repo.
-3. Build settings: leave **Build command** empty; set **Publish directory** to `.` (or leave default if it already publishes the root).
+3. Build settings: leave **Build command** empty; set **Publish directory** to `.`.
 4. Add environment variables (Site settings → Environment variables):
-   - **GITHUB_TOKEN** — A [GitHub Personal Access Token](https://github.com/settings/tokens) with `repo` scope (so the add-post function can commit `data/posts.json`).
-   - **GITHUB_REPO** — Your repo in the form `username/repo-name` (e.g. `jane/travel-blog`).
-   - **GITHUB_BRANCH** — Optional; defaults to `main` if not set.
+   - **GITHUB_TOKEN** — A [GitHub Personal Access Token](https://github.com/settings/tokens) with `repo` scope.
+   - **GITHUB_REPO** — Your repo (e.g. `username/repo-name`).
+   - **GITHUB_BRANCH** — Optional; defaults to `main`.
 
-After deployment, **Add post** at `yoursite.com/add-post` will save new posts to the repo and trigger a new deploy so the post appears on the site.
+After deployment, the hidden **Add post** form at `yoursite.com/add-post.html` (bookmark it; not linked in the UI) can save new posts when GITHUB_TOKEN and GITHUB_REPO are set.
 
 ## Pages
 
-- **/** — Home: intro + map; click continent → region → city to show the post below.
+- **/** — Home: real map; click a continent rectangle to zoom in, then click a city marker to show the post below. Use “Back to world” to return.
 - **/about.html** — About (edit the text in the file).
 - **/contact.html** — Contact (add your email or form link).
-- **/add-post.html** — Form to add a post: choose continent, region, city, then title and content.
+- **/add-post.html** — Hidden form to add a post (intentionally not linked from the public site).
 
 ## Adding more cities or regions
 
-Edit **data/map-data.json**: add cities under the right region, or add new regions under a continent. When you edit it, update **data/map-data.js** too so the map works when you open index.html directly (file://). Copy the JSON content into map-data.js as `window.__MAP_DATA__ = <paste>;`.
+Edit **data/map-data.json**: each city is an object `{"name": "City Name", "lat": 0, "lon": 0}`. Add a `bounds` array per continent for the clickable area: `[[south, west], [north, east]]`. Update **data/map-data.js** the same way (as `window.__MAP_DATA__ = ...`) if you open the site from file.
