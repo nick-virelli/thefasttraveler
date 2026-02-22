@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none" stroke="currentColor" stroke-width="1">
+  <g id="continents">
+    <path id="north-america" d="M120,80 L180,70 L220,90 L210,120 L240,150 L220,180 L180,190 L150,200 L120,190 L100,160 L90,120 Z" fill="currentColor" opacity="0.15"/>
+    <path id="south-america" d="M200,210 L240,200 L260,240 L250,300 L220,340 L190,320 L180,260 Z" fill="currentColor" opacity="0.15"/>
+    <path id="europe" d="M380,80 L440,70 L480,90 L470,130 L430,150 L400,140 L380,110 Z" fill="currentColor" opacity="0.15"/>
+    <path id="africa" d="M400,160 L450,150 L470,200 L460,280 L420,300 L390,260 L380,200 Z" fill="currentColor" opacity="0.15"/>
+    <path id="asia" d="M480,60 L620,50 L700,90 L720,150 L680,220 L600,200 L520,180 L480,140 Z" fill="currentColor" opacity="0.15"/>
+    <path id="oceania" d="M600,280 L680,260 L720,300 L700,340 L640,350 L600,320 Z" fill="currentColor" opacity="0.15"/>
+  </g>
+</svg>
