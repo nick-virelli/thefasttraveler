@@ -1,0 +1,4 @@
+{"sessionId":"071f0c","location":"map.js:init","message":"map init fetch URLs","data":{"origin":"file://","mapDataUrl":"file:///C:/Users/nickv/OneDrive/Secret%20Site/data/map-data.json","postsUrl":"file:///C:/Users/nickv/OneDrive/Secret%20Site/data/posts.json"},"timestamp":1771715909488,"hypothesisId":"A"}
+{"sessionId":"071f0c","location":"map.js:map-data catch","message":"map-data failed","data":{"err":"Failed to fetch"},"timestamp":1771715909533,"hypothesisId":"C"}
+{"sessionId":"071f0c","location":"map.js:init catch","message":"Promise.all catch","data":{"err":"Failed to fetch"},"timestamp":1771715909539,"hypothesisId":"E"}
+{"sessionId":"071f0c","location":"map.js:posts catch","message":"posts failed","data":{"err":"Failed to fetch"},"timestamp":1771715909546,"hypothesisId":"C"}

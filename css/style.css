@@ -1,0 +1,359 @@
+/* Travel blog — minimal, light/dark */
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #666;
+  --border: #e5e5e5;
+  --accent: #2d5a4a;
+  --accent-hover: #1e3d32;
+  --map-bg: #f0f0f0;
+  --map-hover: #e0e0e0;
+  --map-active: #2d5a4a;
+  --map-active-bg: rgba(45, 90, 74, 0.12);
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --text: #e8e8e8;
+  --text-muted: #a0a0a0;
+  --border: #333;
+  --accent: #5a9a82;
+  --accent-hover: #7ab8a0;
+  --map-bg: #252525;
+  --map-hover: #333;
+  --map-active: #5a9a82;
+  --map-active-bg: rgba(90, 154, 130, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.site-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-title a:hover {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.theme-toggle:hover {
+  background: var(--map-hover);
+}
+
+/* Main */
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  width: 100%;
+}
+
+/* Home intro */
+.home-intro {
+  margin-bottom: 2.5rem;
+}
+
+.home-intro h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.home-intro p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* Map section */
+.map-section {
+  margin-bottom: 2rem;
+}
+
+.map-section h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+}
+
+.map-container {
+  background: var(--map-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  min-height: 280px;
+}
+
+.map-level {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.map-level[data-level="continent"] {
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
+.map-level[data-level="region"],
+.map-level[data-level="city"] {
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.map-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.95rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.map-item:hover {
+  background: var(--map-hover);
+  border-color: var(--accent);
+}
+
+.map-item[aria-selected="true"] {
+  background: var(--map-active-bg);
+  border-color: var(--map-active);
+  color: var(--map-active);
+}
+
+.map-back {
+  grid-column: 1 / -1;
+  max-width: 120px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.map-back:hover {
+  color: var(--accent);
+  background: transparent;
+}
+
+/* Post display (below map) */
+.post-display {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.post-display:empty {
+  display: none;
+}
+
+.post-display h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.post-meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.post-content {
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.post-content strong {
+  font-weight: 600;
+}
+
+.post-content em {
+  font-style: italic;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 1.5rem;
+  margin-top: auto;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.site-footer nav {
+  margin-bottom: 0.75rem;
+}
+
+.site-footer nav a {
+  margin: 0 0.75rem;
+  color: var(--text-muted);
+}
+
+.site-footer nav a:hover {
+  color: var(--text);
+}
+
+.site-footer .travel-advice {
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* About / Contact */
+.page-content h1 {
+  font-size: 1.75rem;
+  margin: 0 0 1rem;
+}
+
+.page-content p {
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+/* Add post form */
+.add-post-form {
+  max-width: 560px;
+}
+
+.add-post-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.add-post-form select,
+.add-post-form input[type="text"],
+.add-post-form input[type="date"],
+.add-post-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.add-post-form textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+.add-post-form select:focus,
+.add-post-form input:focus,
+.add-post-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.add-post-form button[type="submit"] {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.add-post-form button[type="submit"]:hover {
+  background: var(--accent-hover);
+}
+
+.add-post-form .form-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.add-post-form .form-message.success {
+  background: var(--map-active-bg);
+  color: var(--map-active);
+}
+
+.add-post-form .form-message.error {
+  background: rgba(180, 60, 60, 0.15);
+  color: #c44;
+}
+
+.add-post-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .add-post-form .form-row {
+    grid-template-columns: 1fr;
+  }
+}

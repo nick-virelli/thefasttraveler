@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="index.html">Travel Blog</a></h1>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="add-post.html">Add post</a>
+      <button type="button" class="theme-toggle" aria-label="Toggle theme">Dark mode</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="home-intro">
+      <h1>Our travels</h1>
+      <p>Click a continent, then a region, then a city to read the post from that trip.</p>
+    </section>
+
+    <section class="map-section">
+      <h2>Explore by place</h2>
+      <div class="map-container" id="map-container">
+        <p>Loading map…</p>
+      </div>
+    </section>
+
+    <article class="post-display" id="post-display" aria-live="polite"></article>
+  </main>
+
+  <footer class="site-footer">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="add-post.html">Add post</a>
+    </nav>
+    <p>Contact: <a href="contact.html">Get in touch</a></p>
+    <p class="travel-advice">I love giving travel advice—reach out if you need tips or recommendations.</p>
+  </footer>
+
+  <script src="data/map-data.js"></script>
+  <script src="data/posts.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>

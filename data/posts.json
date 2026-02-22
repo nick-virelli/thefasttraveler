@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "id": "paris-2024",
+      "continent": "europe",
+      "region": "western-europe",
+      "city": "Paris",
+      "title": "Paris in the spring",
+      "content": "We spent a week in Paris and fell in love with the cafés, the Seine, and the endless walks. Here are our favorite spots and tips.\n\n**Day 1:** Arrived at Gare du Nord and walked to our hotel in Le Marais. Dinner at a tiny bistro—croque madame and wine.\n\n**Day 2:** Louvre in the morning (book ahead!), then Tuileries and a picnic by the river. Evening in Montmartre.\n\n*More to come—edit this post or add your own at Add Post.*",
+      "date": "2024-04-15",
+      "images": []
+    }
+  ]
+}

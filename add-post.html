@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add post — Travel Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title"><a href="index.html">Travel Blog</a></h1>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="add-post.html">Add post</a>
+      <button type="button" class="theme-toggle" aria-label="Toggle theme">Dark mode</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-content">
+      <h1>Add a post</h1>
+      <p>Choose the place (continent, region, city), then add a title and your post. You can use <strong>bold</strong> and <em>italics</em> with *asterisks*.</p>
+
+      <form id="add-post-form" class="add-post-form" action="#" method="post">
+        <div class="form-row">
+          <div>
+            <label for="continent">Continent</label>
+            <select id="continent" name="continent" required>
+              <option value="">Select continent</option>
+            </select>
+          </div>
+          <div>
+            <label for="region">Region</label>
+            <select id="region" name="region" required>
+              <option value="">Select region</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="city">City</label>
+          <select id="city" name="city" required>
+            <option value="">Select city</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required placeholder="e.g. Paris in the spring">
+          </div>
+          <div>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date">
+          </div>
+        </div>
+        <div>
+          <label for="content">Post</label>
+          <textarea id="content" name="content" placeholder="Write your post here. Use **bold** and *italics* if you like."></textarea>
+        </div>
+        <button type="submit">Publish post</button>
+        <p id="form-message" class="form-message" role="status"></p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="add-post.html">Add post</a>
+    </nav>
+    <p>Contact: <a href="contact.html">Get in touch</a></p>
+    <p class="travel-advice">I love giving travel advice—reach out if you need tips or recommendations.</p>
+  </footer>
+
+  <script src="data/map-data.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/add-post.js"></script>
+</body>
+</html>
