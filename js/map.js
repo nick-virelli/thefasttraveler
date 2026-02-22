@@ -7,28 +7,71 @@
 
   if (!container) return;
 
+  var svgTemplate = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" class="world-map-svg"><g><path id="north-america" class="continent" d="M 180 120 L 240 100 L 280 110 L 300 140 L 290 170 L 270 200 L 250 220 L 220 230 L 200 220 L 180 200 L 170 170 L 165 140 Z"><title>North America</title></path><path id="south-america" class="continent" d="M 260 240 L 280 230 L 290 260 L 285 310 L 270 350 L 250 380 L 235 370 L 240 320 L 250 280 Z"><title>South America</title></path><path id="europe" class="continent" d="M 480 110 L 520 100 L 550 115 L 545 150 L 520 170 L 500 165 L 480 150 Z"><title>Europe</title></path><path id="africa" class="continent" d="M 500 180 L 530 175 L 545 210 L 540 270 L 520 320 L 500 340 L 490 300 L 495 240 Z"><title>Africa</title></path><path id="asia" class="continent" d="M 550 90 L 650 80 L 750 100 L 780 150 L 770 200 L 720 240 L 650 230 L 580 210 L 550 160 Z"><title>Asia</title></path><path id="oceania" class="continent" d="M 720 340 L 780 320 L 820 340 L 810 370 L 760 380 L 720 365 Z"><title>Oceania</title></path></g></svg>';
+
   function renderLevel(items, level, keyAttr) {
     container.innerHTML = "";
-    const levelEl = document.createElement("div");
+
+    if (level === "continent") {
+      var mapWrap = document.createElement("div");
+      mapWrap.className = "map-visual";
+      mapWrap.innerHTML = svgTemplate;
+      container.appendChild(mapWrap);
+      var svg = mapWrap.querySelector(".world-map-svg");
+      var paths = svg ? svg.querySelectorAll(".continent") : [];
+      paths.forEach(function (path) {
+        path.style.cursor = "pointer";
+        path.addEventListener("click", function () {
+          var key = path.getAttribute("id");
+          var item = items.find(function (i) { return i.key === key; });
+          if (item && item.children) {
+            stack.push({ items: items, level: level, keyAttr: keyAttr });
+            renderLevel(item.children, item.nextLevel, item.nextKey);
+          }
+        });
+      });
+      var btnWrap = document.createElement("div");
+      btnWrap.className = "map-buttons";
+      btnWrap.innerHTML = "<p style=\"margin:0;font-size:0.9rem;color:var(--text-muted)\">Or choose a continent:</p>";
+      var btnGrid = document.createElement("div");
+      btnGrid.className = "map-level";
+      btnGrid.setAttribute("data-level", "continent");
+      items.forEach(function (item) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "map-item";
+        btn.textContent = item.label;
+        btn.addEventListener("click", function () {
+          if (item.children) {
+            stack.push({ items: items, level: level, keyAttr: keyAttr });
+            renderLevel(item.children, item.nextLevel, item.nextKey);
+          }
+        });
+        btnGrid.appendChild(btn);
+      });
+      btnWrap.appendChild(btnGrid);
+      container.appendChild(btnWrap);
+      return;
+    }
+
+    var levelEl = document.createElement("div");
     levelEl.className = "map-level";
     levelEl.setAttribute("data-level", level);
 
-    if (stack.length > 0) {
-      const back = document.createElement("button");
-      back.type = "button";
-      back.className = "map-item map-back";
-      back.textContent = "← Back";
-      back.addEventListener("click", function () {
-        stack.pop();
-        const prev = stack[stack.length - 1];
-        if (prev) renderLevel(prev.items, prev.level, prev.keyAttr);
-        else loadContinents();
-      });
-      levelEl.appendChild(back);
-    }
+    var back = document.createElement("button");
+    back.type = "button";
+    back.className = "map-item map-back";
+    back.textContent = "← Back";
+    back.addEventListener("click", function () {
+      stack.pop();
+      var prev = stack[stack.length - 1];
+      if (prev) renderLevel(prev.items, prev.level, prev.keyAttr);
+      else loadContinents();
+    });
+    levelEl.appendChild(back);
 
     items.forEach(function (item) {
-      const btn = document.createElement("button");
+      var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "map-item";
       btn.textContent = item.label;
