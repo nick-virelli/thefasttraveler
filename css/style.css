@@ -146,56 +146,31 @@ main {
   color: var(--text);
 }
 
+.map-controls {
+  margin-bottom: 0.75rem;
+}
+
 .map-container {
   background: var(--map-bg);
   border-radius: 12px;
-  padding: 1.5rem;
+  overflow: hidden;
   min-height: 320px;
   position: relative;
 }
 
-/* World map SVG */
-.world-map-svg {
+.leaflet-map {
   width: 100%;
-  height: auto;
-  max-height: 320px;
-  display: block;
-  --map-land: #e0e0e0;
-  --map-stroke: #999;
-  --map-hover-fill: #ccc;
-  --map-active-fill: var(--accent);
+  height: 380px;
+  min-height: 320px;
+  border-radius: 12px;
 }
 
-[data-theme="dark"] .world-map-svg {
-  --map-land: #2a2a2a;
-  --map-stroke: #4a4a4a;
-  --map-hover-fill: #3a3a3a;
-  --map-active-fill: var(--accent);
+.leaflet-container {
+  font-family: inherit;
 }
 
-.world-map-svg .continent {
-  fill: var(--map-land);
-  stroke: var(--map-stroke);
-  stroke-width: 1;
-  cursor: pointer;
-  transition: fill 0.2s;
-}
-
-.world-map-svg .continent:hover {
-  fill: var(--map-hover-fill);
-}
-
-.world-map-svg .continent.highlight {
-  fill: var(--map-active-fill);
-  opacity: 0.9;
-}
-
-.map-visual {
-  margin-bottom: 1rem;
-}
-
-.map-buttons {
-  margin-top: 0.5rem;
+.leaflet-control-attribution {
+  font-size: 10px;
 }
 
 .map-level {

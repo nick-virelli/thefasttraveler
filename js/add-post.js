@@ -51,8 +51,9 @@
     if (!continentKey || !regionKey || !mapData?.continents?.[continentKey]?.regions?.[regionKey]) return;
     (mapData.continents[continentKey].regions[regionKey].cities || []).forEach(function (city) {
       const opt = document.createElement("option");
-      opt.value = city;
-      opt.textContent = city;
+      var name = typeof city === "object" && city.name ? city.name : city;
+      opt.value = name;
+      opt.textContent = name;
       citySelect.appendChild(opt);
     });
   }

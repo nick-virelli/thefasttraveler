@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Blog</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,7 +14,6 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="add-post.html">Add post</a>
       <button type="button" class="theme-toggle" aria-label="Toggle theme">Dark mode</button>
     </nav>
   </header>
@@ -21,11 +21,14 @@
   <main>
     <section class="home-intro">
       <h1>Our travels</h1>
-      <p>Click a continent, then a region, then a city to read the post from that trip.</p>
+      <p>Click a continent on the map to zoom in, then click a city to read the post from that trip.</p>
     </section>
 
     <section class="map-section">
       <h2>Explore by place</h2>
+      <div class="map-controls" id="map-controls" style="display:none;">
+        <button type="button" class="map-item map-back" id="back-to-world">← Back to world</button>
+      </div>
       <div class="map-container" id="map-container">
         <p>Loading map…</p>
       </div>
@@ -39,12 +42,12 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="add-post.html">Add post</a>
     </nav>
     <p>Contact: <a href="contact.html">Get in touch</a></p>
     <p class="travel-advice">I love giving travel advice—reach out if you need tips or recommendations.</p>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="data/map-data.js"></script>
   <script src="data/posts.js"></script>
   <script src="js/theme.js"></script>
