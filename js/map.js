@@ -107,18 +107,18 @@
       maxZoom: 19,
     }).addTo(map);
 
-    var boundsStyle = {
-      color: "var(--accent)",
-      fillColor: "var(--accent)",
-      fillOpacity: 0.15,
-      weight: 2,
-    };
+    var accent = "#2d5a4a";
     if (typeof getComputedStyle !== "undefined") {
       var root = document.documentElement;
-      var accent = getComputedStyle(root).getPropertyValue("--accent").trim() || "#2d5a4a";
-      boundsStyle.color = accent;
-      boundsStyle.fillColor = accent;
+      var v = getComputedStyle(root).getPropertyValue("--accent");
+      if (v && v.trim()) accent = v.trim();
     }
+    var boundsStyle = {
+      color: accent,
+      fillColor: accent,
+      fillOpacity: 0.2,
+      weight: 2,
+    };
 
     Object.entries(mapData.continents).forEach(function ([key, c]) {
       if (!c.bounds || c.bounds.length < 2) return;
