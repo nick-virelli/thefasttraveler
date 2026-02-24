@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "id": "top-5-mcdonalds",
+      "title": "Top 5 coolest McDonald's locations",
+      "date": "2026-02-22",
+      "type": "list",
+      "content": "A quick guide to the most interesting McDonald's locations we've seen around the world.\n\n1) \n2) \n3) \n4) \n5) \n",
+      "relatedCities": []
+    },
+    {
+      "id": "italy-multi-city-trip",
+      "title": "Italy: one trip, many cities",
+      "date": "2026-02-22",
+      "type": "multi-city-trip",
+      "content": "This was one bigger Italy trip that included multiple stops. We'll link each city post to this trip so readers can jump between them.\n\nAdd the cities we visited here as we publish each city post.",
+      "relatedCities": [
+        { "continent": "europe", "region": "southern-europe", "city": "Rome" }
+      ]
+    }
+  ]
+}
+

@@ -82,7 +82,7 @@
           "label": "Mexico & Central America",
           "cities": [
             {"name": "Mexico City", "lat": 19.4326, "lon": -99.1332},
-            {"name": "Cancún", "lat": 21.1619, "lon": -86.8515},
+            {"name": "Cancun", "lat": 21.1619, "lon": -86.8515},
             {"name": "Tulum", "lat": 20.2115, "lon": -87.4292}
           ]
         }

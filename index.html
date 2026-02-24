@@ -24,17 +24,28 @@
       <p>Click a continent on the map to zoom in, then click a city to read the post from that trip.</p>
     </section>
 
-    <section class="map-section">
-      <h2>Explore by place</h2>
-      <div class="map-controls" id="map-controls" style="display:none;">
-        <button type="button" class="map-item map-back" id="back-to-world">← Back to world</button>
-      </div>
-      <div class="map-container" id="map-container">
-        <p>Loading map…</p>
-      </div>
-    </section>
+    <div class="home-layout">
+      <div class="home-main">
+        <section class="map-section">
+          <h2>Explore by place</h2>
+          <div class="map-controls" id="map-controls" style="display:none;">
+            <button type="button" class="map-item map-back" id="back-to-world">← Back to world</button>
+          </div>
+          <div class="map-container" id="map-container">
+            <p>Loading map…</p>
+          </div>
+        </section>
 
-    <article class="post-display" id="post-display" aria-live="polite"></article>
+        <article class="post-display" id="post-display" aria-live="polite"></article>
+      </div>
+
+      <aside class="special-sidebar" aria-label="Stories and guides">
+        <h2 class="special-title">Stories &amp; Guides</h2>
+        <div id="special-posts-list" class="special-list">
+          <p class="post-meta">Loading…</p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -48,8 +59,10 @@
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="data/continents.js"></script>
   <script src="data/map-data.js"></script>
   <script src="data/posts.js"></script>
+  <script src="data/special-posts.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/map.js"></script>
 </body>
