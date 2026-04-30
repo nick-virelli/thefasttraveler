@@ -123,6 +123,49 @@
     postEl.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  function renderHeroStrip() {
+    var heroLatest = document.getElementById("hero-latest");
+    if (!heroLatest || !posts.length) return;
+    var sorted = posts.slice().sort(function (a, b) {
+      return new Date(b.date) - new Date(a.date);
+    });
+    var latest = sorted[0];
+    heroLatest.innerHTML =
+      "<span class=\"hero-latest-label\">Latest post</span>" +
+      "<a href=\"#\" class=\"hero-post-title\">" + escapeHtml(latest.title) + "</a>" +
+      "<span class=\"hero-post-date\">" + escapeHtml(formatDate(latest.date)) + "</span>";
+    heroLatest.querySelector("a").addEventListener("click", function (e) {
+      e.preventDefault();
+      showPost(latest.continent, latest.region, latest.city);
+    });
+  }
+
+  function renderRecentPosts() {
+    var recentListEl = document.getElementById("recent-posts-list");
+    if (!recentListEl) return;
+    if (!posts.length) {
+      recentListEl.innerHTML = "<p class=\"post-meta\">No posts yet.</p>";
+      return;
+    }
+    var sorted = posts.slice().sort(function (a, b) {
+      return new Date(b.date) - new Date(a.date);
+    });
+    var recent = sorted.slice(0, 3);
+    recentListEl.innerHTML = "";
+    recent.forEach(function (post) {
+      var item = document.createElement("div");
+      item.className = "special-item";
+      item.innerHTML =
+        "<a href=\"#\">" + escapeHtml(post.title) + "</a>" +
+        "<div class=\"meta\">" + escapeHtml(formatDate(post.date)) + "</div>";
+      item.querySelector("a").addEventListener("click", function (e) {
+        e.preventDefault();
+        showPost(post.continent, post.region, post.city);
+      });
+      recentListEl.appendChild(item);
+    });
+  }
+
   function renderSpecialSidebar() {
     if (!specialListEl) return;
     if (!specialPosts || specialPosts.length === 0) {
@@ -307,7 +350,7 @@
     var mapEl = document.getElementById("leaflet-map");
     if (!mapEl) return;
 
-    map = L.map("leaflet-map", { zoomControl: true }).setView([20, 0], 2);
+    map = L.map("leaflet-map", { zoomControl: true, minZoom: 1 }).setView([20, 0], 2);
 
     L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png", {
       attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors &copy; <a href=\"https://carto.com/attributions\">CARTO</a>",
@@ -389,6 +432,8 @@
       var geoFallback = (window.__CONTINENTS_GEOJSON__) || null;
       buildSpecialIndexes();
       renderSpecialSidebar();
+      renderHeroStrip();
+      renderRecentPosts();
       initMap(geoFallback);
       return;
     }
@@ -419,6 +464,8 @@
 
       buildSpecialIndexes();
       renderSpecialSidebar();
+      renderHeroStrip();
+      renderRecentPosts();
       initMap(geoData);
     }).catch(function () {
       container.innerHTML = "<p>Could not load map. Check that data/map-data.json exists.</p>";

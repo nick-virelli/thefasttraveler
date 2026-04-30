@@ -18,16 +18,25 @@
     </nav>
   </header>
 
-  <main>
-    <section class="home-intro">
-      <h1>Our travels</h1>
-      <p>Click a continent on the map to zoom in, then click a city to read the post from that trip.</p>
-    </section>
+  <div class="hero-strip">
+    <div class="hero-strip-inner">
+      <div class="hero-stat">
+        <span class="hero-count">24</span>
+        <span class="hero-stat-label">countries explored</span>
+      </div>
+      <div class="hero-latest" id="hero-latest">
+        <span class="hero-latest-label">Latest post</span>
+        <span class="hero-post-loading">Loading...</span>
+      </div>
+    </div>
+  </div>
 
+  <main>
     <div class="home-layout">
       <div class="home-main">
         <section class="map-section">
           <h2>Explore by place</h2>
+          <p class="map-instruction">Click a region, then a city to read the post from that trip.</p>
           <div class="map-controls" id="map-controls" style="display:none;">
             <button type="button" class="map-item map-back" id="back-to-world">← Back to world</button>
           </div>
@@ -39,9 +48,14 @@
         <article class="post-display" id="post-display" aria-live="polite"></article>
       </div>
 
-      <aside class="special-sidebar" aria-label="Stories and guides">
-        <h2 class="special-title">Stories &amp; Guides</h2>
+      <aside class="special-sidebar" aria-label="Features and recent posts">
+        <h2 class="special-title">Features</h2>
         <div id="special-posts-list" class="special-list">
+          <p class="post-meta">Loading…</p>
+        </div>
+
+        <h2 class="special-title rail-section-title">Recent Posts</h2>
+        <div id="recent-posts-list" class="special-list">
           <p class="post-meta">Loading…</p>
         </div>
       </aside>
@@ -55,7 +69,7 @@
       <a href="contact.html">Contact</a>
     </nav>
     <p>Contact: <a href="contact.html">Get in touch</a></p>
-    <p class="travel-advice">I love giving travel advice—reach out if you need tips or recommendations.</p>
+    <p class="travel-advice">I love giving travel advice. Reach out if you need tips or recommendations.</p>
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
