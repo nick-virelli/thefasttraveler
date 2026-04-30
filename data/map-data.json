@@ -9,7 +9,6 @@
           "cities": [
             {"name": "Paris", "lat": 48.8566, "lon": 2.3522},
             {"name": "Amsterdam", "lat": 52.3676, "lon": 4.9041},
-            {"name": "Brussels", "lat": 50.8503, "lon": 4.3517},
             {"name": "London", "lat": 51.5074, "lon": -0.1278},
             {"name": "Berlin", "lat": 52.5200, "lon": 13.4050},
             {"name": "Switzerland", "lat": 46.8182, "lon": 8.2275},
@@ -51,7 +50,6 @@
           "cities": [
             {"name": "Prague", "lat": 50.0755, "lon": 14.4378},
             {"name": "Budapest", "lat": 47.4979, "lon": 19.0402},
-            {"name": "Krakow", "lat": 50.0647, "lon": 19.9450},
             {"name": "Vienna", "lat": 48.2082, "lon": 16.3738},
             {"name": "Bratislava", "lat": 48.1486, "lon": 17.1077},
             {"name": "Salzburg", "lat": 47.8095, "lon": 13.0550}
@@ -72,21 +70,11 @@
       "label": "Asia",
       "bounds": [[-11, 60], [55, 150]],
       "regions": {
-        "east-asia": {
-          "label": "East Asia",
-          "cities": [
-            {"name": "Tokyo", "lat": 35.6762, "lon": 139.6503},
-            {"name": "Seoul", "lat": 37.5665, "lon": 126.9780},
-            {"name": "Beijing", "lat": 39.9042, "lon": 116.4074},
-            {"name": "Kyoto", "lat": 35.0116, "lon": 135.7681}
-          ]
-        },
         "southeast-asia": {
           "label": "Southeast Asia",
           "cities": [
             {"name": "Bangkok", "lat": 13.7563, "lon": 100.5018},
             {"name": "Singapore", "lat": 1.3521, "lon": 103.8198},
-            {"name": "Bali", "lat": -8.4095, "lon": 115.1889},
             {"name": "Hanoi", "lat": 21.0285, "lon": 105.8542},
             {"name": "Ho Chi Minh City", "lat": 10.8231, "lon": 106.6297},
             {"name": "Da Nang", "lat": 16.0544, "lon": 108.2022},
@@ -112,26 +100,7 @@
         "usa": {
           "label": "United States",
           "cities": [
-            {"name": "New York", "lat": 40.7128, "lon": -74.0060},
-            {"name": "San Francisco", "lat": 37.7749, "lon": -122.4194},
-            {"name": "Los Angeles", "lat": 34.0522, "lon": -118.2437},
             {"name": "Chicago", "lat": 41.8781, "lon": -87.6298}
-          ]
-        },
-        "canada": {
-          "label": "Canada",
-          "cities": [
-            {"name": "Toronto", "lat": 43.6532, "lon": -79.3832},
-            {"name": "Vancouver", "lat": 49.2827, "lon": -123.1207},
-            {"name": "Montreal", "lat": 45.5017, "lon": -73.5673}
-          ]
-        },
-        "mexico": {
-          "label": "Mexico & Central America",
-          "cities": [
-            {"name": "Mexico City", "lat": 19.4326, "lon": -99.1332},
-            {"name": "Cancun", "lat": 21.1619, "lon": -86.8515},
-            {"name": "Tulum", "lat": 20.2115, "lon": -87.4292}
           ]
         }
       }
@@ -139,47 +108,12 @@
     "south-america": {
       "label": "South America",
       "bounds": [[-56, -82], [12, -35]],
-      "regions": {
-        "andean": {
-          "label": "Andean",
-          "cities": [
-            {"name": "Lima", "lat": -12.0464, "lon": -77.0428},
-            {"name": "Cusco", "lat": -13.5319, "lon": -71.9675},
-            {"name": "Quito", "lat": -0.1807, "lon": -78.4678},
-            {"name": "La Paz", "lat": -16.4897, "lon": -68.1193}
-          ]
-        },
-        "atlantic": {
-          "label": "Atlantic Coast",
-          "cities": [
-            {"name": "Buenos Aires", "lat": -34.6037, "lon": -58.3816},
-            {"name": "Rio de Janeiro", "lat": -22.9068, "lon": -43.1729},
-            {"name": "Cartagena", "lat": 10.3910, "lon": -75.4794}
-          ]
-        }
-      }
+      "regions": {}
     },
     "oceania": {
       "label": "Oceania",
       "bounds": [[-48, 110], [0, 180]],
-      "regions": {
-        "australia": {
-          "label": "Australia",
-          "cities": [
-            {"name": "Sydney", "lat": -33.8688, "lon": 151.2093},
-            {"name": "Melbourne", "lat": -37.8136, "lon": 144.9631},
-            {"name": "Cairns", "lat": -16.9186, "lon": 145.7781}
-          ]
-        },
-        "pacific": {
-          "label": "Pacific",
-          "cities": [
-            {"name": "Auckland", "lat": -36.8509, "lon": 174.7645},
-            {"name": "Fiji", "lat": -18.1248, "lon": 178.4501},
-            {"name": "Queenstown", "lat": -45.0312, "lon": 168.6626}
-          ]
-        }
-      }
+      "regions": {}
     },
     "africa": {
       "label": "Africa",
@@ -188,26 +122,7 @@
         "north-africa": {
           "label": "North Africa",
           "cities": [
-            {"name": "Marrakech", "lat": 31.6295, "lon": -7.9811},
-            {"name": "Cairo", "lat": 30.0444, "lon": 31.2357},
-            {"name": "Tunis", "lat": 36.8065, "lon": 10.1815},
             {"name": "Morocco", "lat": 33.9716, "lon": -6.8498}
-          ]
-        },
-        "east-africa": {
-          "label": "East Africa",
-          "cities": [
-            {"name": "Nairobi", "lat": -1.2921, "lon": 36.8219},
-            {"name": "Zanzibar", "lat": -6.1659, "lon": 39.2026},
-            {"name": "Serengeti", "lat": -2.3333, "lon": 34.8333}
-          ]
-        },
-        "southern-africa": {
-          "label": "Southern Africa",
-          "cities": [
-            {"name": "Cape Town", "lat": -33.9249, "lon": 18.4241},
-            {"name": "Johannesburg", "lat": -26.2041, "lon": 28.0473},
-            {"name": "Victoria Falls", "lat": -17.9243, "lon": 25.8572}
           ]
         }
       }

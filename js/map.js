@@ -28,7 +28,7 @@
     "europe": [
       8, 20, 40, 56, 70, 100, 112, 191, 203, 208, 233, 234, 246, 248,
       250, 276, 292, 300, 336, 348, 352, 372, 380, 428, 438, 440, 442,
-      470, 492, 498, 499, 528, 578, 616, 620, 642, 643, 674, 688, 703,
+      470, 492, 498, 499, 528, 578, 616, 620, 642, 674, 688, 703,
       705, 724, 744, 752, 756, 804, 807, 826, 831, 832, 833
     ],
     "africa": [
@@ -68,10 +68,22 @@
 
   function formatContent(text) {
     if (!text) return "";
-    return escapeHtml(text)
+    var imgs = [];
+    var withPlaceholders = text.replace(/!\[([^\]]*)\]\((https?:\/\/[^)]+)\)/g, function (_, alt, url) {
+      var d = document.createElement("div");
+      d.textContent = alt;
+      var idx = imgs.length;
+      imgs.push('<img src="' + url + '" alt="' + d.innerHTML + '" style="max-width:100%;border-radius:6px;margin:0.75rem 0;display:block;">');
+      return "\x00IMG" + idx + "\x00";
+    });
+    var result = escapeHtml(withPlaceholders)
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.+?)\*/g, "<em>$1</em>")
       .replace(/\n/g, "<br>");
+    imgs.forEach(function (html, idx) {
+      result = result.replace("\x00IMG" + idx + "\x00", html);
+    });
+    return result;
   }
 
   function cityKey(continent, region, city) {

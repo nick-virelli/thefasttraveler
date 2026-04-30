@@ -144,6 +144,7 @@ Rendering rules (frontend):
   - `**bold**`
   - `*italics*`
   - newlines become `<br>`
+  - `![caption](https://url)` renders as an inline image (hosted URLs only)
 - HTML is escaped before formatting to reduce injection risk.
 
 ### `data/special-posts.json`
@@ -263,6 +264,10 @@ Keep your data as-is and port in stages:
 - If you add new continents/regions/cities, update `data/map-data.json` (canonical) and optionally `data/map-data.js` (for file:// mode).
 
 ---
+
+## Content creation workflow
+
+New posts are written by a dedicated Claude project that has its own instructions covering post structure, required fields, formatting rules, and image syntax. When a post is ready, the `.md` file is uploaded to Claude Code, which inserts it into `data/posts.json` and `data/posts.js`, then commits, pushes, and deploys on request.
 
 ## Contributing / customization checklist
 
