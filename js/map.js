@@ -313,7 +313,9 @@
       cityLayer = null;
     }
 
-    var bounds = getContinentBloggedBounds(continentKey);
+    var bounds = c.bounds
+      ? L.latLngBounds(c.bounds[0], c.bounds[1])
+      : getContinentBloggedBounds(continentKey);
     if (bounds) map.fitBounds(bounds, { padding: [40, 40] });
 
     if (controlsEl) controlsEl.style.display = "block";
