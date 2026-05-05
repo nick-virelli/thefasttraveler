@@ -193,7 +193,7 @@
     });
     if (!postEl) return;
     if (!post) {
-      postEl.innerHTML = "<p class=\"post-meta\">No post for this city yet.</p>";
+      postEl.innerHTML = "<p class=\"post-meta\">We're working on this one. Check back soon!</p>";
       postEl.classList.add("post-display");
       return;
     }

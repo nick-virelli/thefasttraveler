@@ -69,11 +69,20 @@ a:hover {
 .site-title a {
   color: var(--text);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .site-title a:hover {
   text-decoration: none;
   color: var(--accent);
+}
+
+.site-logo {
+  height: 2rem;
+  width: auto;
+  display: block;
 }
 
 .site-nav {
